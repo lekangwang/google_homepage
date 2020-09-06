@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@mixin flex ($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
 
 *{
   margin: 0;
@@ -7,9 +13,135 @@
 }
 
 body{
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Roboto', sans-serif;
   color: gray;
   background: white;
 }
+
+a{
+  text-decoration: none;
+  color: gray;
+}
+
+ul{
+  list-style: none;
+}
+
+.navbar{
+  @include flex(space-between, center, row);
+  padding: 1rem;
+
+  a{
+    color: rgb(95, 95, 95);
+    &:hover{
+      color: black;
+    }
+  }
+
+  .ul-1{
+    @include flex(space-around, center, row);
+    width: 6rem;
+  }
+
+  .ul-2{
+    @include flex(space-around, center, row);
+    width: 12rem;
+  }
+
+  div{
+    background-color: purple;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    @include flex(center, center, row);
+
+    h1{
+      color: white;
+    }
+  }
+}
+
+.main-part{
+  @include flex(center, center, column);
+  height: 70vh;
+  .showcase{
+    img{
+      object-fit: cover;
+      width: 20rem;
+    }
+  }
+
+  .searchbar{
+    @include flex(space-between, center, row);
+    width: 45%;
+    height: 3rem;
+    border: rgb(228, 226, 226) 1px solid;
+    border-radius: 2rem;
+    padding: 0 1rem;
+    img{
+      object-fit: cover;
+      width: 1rem;
+    }
+  }
+
+  .buttons{
+    @include flex(space-around, center, row);
+    margin: 1.5rem;
+    width: 20rem;
+
+    .btn{
+      background-color: rgb(243, 243, 243);
+      color: gray;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      border: 1px solid transparent;
+
+      &:hover{
+        border: lightgray 1px solid;
+      }
+    }
+
+    p{
+      span{
+        a{
+          color: blue;
+        }
+      }
+    }
+  }
+}
+
+footer{
+  margin-top: 4.5rem;
+
+  .country{
+    padding: 1.5rem;
+    background-color: rgb(241, 239, 239);
+    color: gray;
+    height: 2rem;
+    width: 100vw;
+    @include flex(flex-start, center, row);
+    border-bottom: lightgray 1px solid;
+  }
+
+  .uls{
+    padding: 1.5rem;
+    background-color: rgb(241, 239, 239);
+    color: gray;
+    height: 2rem;
+    width: 100vw;
+    @include flex(space-between, center, row);
+
+    ul{
+      @include flex(space-around, center, row);
+      li{
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+
 
